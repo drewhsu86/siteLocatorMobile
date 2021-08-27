@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <access origin="*" />
+  
+  <feature name="SecureWebView">
+    <param name="ios-package" value="SecureWebView"/>
+  </feature>
+  <feature name="IonicHttp">
+    <param name="ios-package" value="IonicHttp"/>
+  </feature>
+  <feature name="IonicAuthConnectStorage">
+    <param name="ios-package" value="IonicAuthConnectStorage"/>
+  </feature>
+
+  <feature name="CallNumber">
+    <param name="ios-package" value="CFCallNumber"/>
+  </feature>
+
+  <feature name="Geolocation">
+    <param name="ios-package" value="CDVLocation"/>
+  </feature>
+
+  <feature name="NativeGeocoder">
+    <param name="ios-package" value="NativeGeocoder"/>
+  </feature>
+
+  <feature name="NetworkStatus">
+    <param name="ios-package" value="CDVConnection"/>
+  </feature>
+
+  <feature name="RequestLocationAccuracy">
+    <param name="ios-package" value="RequestLocationAccuracy"/>
+  </feature>
+
+  <feature name="Toast">
+    <param name="ios-package" value="Toast"/>
+  </feature>
+
+  
+</widget>

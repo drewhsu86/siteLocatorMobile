@@ -1,0 +1,15 @@
+{
+  "name": "VerticalBridge",
+  "integrations": {
+    "capacitor": {},
+    "enterprise": {
+      "keyId": 2955,
+      "productKey": "key_b759d0a747d84842a7e49bc6563ff8bc",
+      "appId": "c5d35dbe",
+      "registries": [
+        "@ionic-enterprise;https://registry.ionicframework.com/"
+      ]
+    }
+  },
+  "type": "angular"
+}

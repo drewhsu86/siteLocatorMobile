@@ -1,0 +1,193 @@
+<ion-item class="search-address-item" lines="none">
+  <img src="../../../assets/imgs/vbfavicon.svg" id="search-prev-logo"/>
+  <ion-input placeholder="Enter City, State, Zip or Site Number" [(ngModel)]="searchText" (ionChange)="updateSearch()"></ion-input><img id="search_ic" src="../../../assets/icon/search_ic.svg" (click)="searchSites()"/>
+</ion-item>
+
+<div #map id="map" (click)="hideDetailScreen()"></div>
+<div #pleaseConnect id="please-connect">
+  
+</div>
+<ion-icon (click)="goBackDiscover()" *ngIf="moreDetailStatus" id="discover-back-img" name="discover-back-arrow"></ion-icon>
+<ion-content *ngIf="!moreDetailStatus">
+  <ion-list *ngIf="locationEnabled" >
+    <ion-list-header>
+      <ion-label class="text-gray-color">{{searchResultText}}</ion-label>
+    </ion-list-header>
+    <div  *ngFor="let site of siteData">
+      <ion-item lines="none" class="info-item">
+        <span class="one-line-span" (click)="toggleFooter(site)">
+          <p class="location-name">{{site.siteName}}</p>
+          <p class="near-text">Closest</p>  
+        </span>
+        <span slot="end" class="one-line-span">
+          <p class="distance-text" (click)="toggleFooter(site)">0.1 mi away</p>
+          <img *ngIf="!site.saved" src="../../../assets/icon/bookmark_ic.svg" (click)="saveSite(site, true)" />
+          <img *ngIf="site.saved" src="../../../assets/icon/bookmark_small_selected.svg" (click)="saveSite(site, false)" />
+        </span>
+      </ion-item>
+      <div (click)="toggleFooter(site)">
+        <ion-label class="site-num-label">Site Num:{{site.newSiteNo}}</ion-label>
+        <p class="address-text"><img src="../../../assets/imgs/pin_inline.svg"/>{{site.siteAddress}}</p>
+      </div>
+        <ion-item class="action-btn-container" lines="none">
+          <div class="action-btn-div">
+            <img src="../../../assets/imgs/roofing_ic.png"/>
+            <p>{{site.siteCategory}}</p>
+          </div>
+          <div class="action-btn-div">
+            <img src="../../../assets/imgs/office_ic.png"/>
+            <p>Building</p>
+          </div>
+          <div class="action-btn-div" (click)="showDirection(site)">
+            <img src="../../../assets/imgs/direction_ic.png"/>
+            <p>Directions</p>
+          </div>
+          <div class="action-btn-div" (click)="shareInfo(site)">
+            <img src="../../../assets/imgs/share_ic.png"/>
+            <p>Share</p>  
+          </div>
+        </ion-item>
+    </div>
+  </ion-list>
+  <div *ngIf="!locationEnabled" class="locationDisableContainer">
+    <p>SEARCH NEAR ME</p>
+    <div id="locationEnableDiv">
+      <div>
+        <img src="../../../assets/imgs/enable_location.svg"/>
+      </div>
+      <ion-label>Enable location for full functionality</ion-label>
+      <div>
+        <ion-button color="primary" (click)="enableLocation()">ENABLE LOCATION</ion-button>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+    </div>
+  </div>
+</ion-content>
+<ion-content *ngIf="moreDetailStatus">
+  <ion-toolbar>
+    <img src="../../../assets/imgs/pull_up_header.svg" (click)="goBackDiscover()">
+  </ion-toolbar>
+  <div>
+    <div id="discover-detail-actions-container">
+      <img (click)="showDirection('')" src="../../../assets/imgs/discover_detail_direction.svg"/>
+      <img src="../../../assets/imgs/discover_detail_start.svg"/>
+      <img (click)="callInfo()" src="../../../assets/imgs/discover_detail_call.svg"/>
+      <img (click)="shareInfo('')" src="../../../assets/imgs/discover_detail_share.svg"/>
+    </div>
+    <ion-item lines="none">
+      <span class="one-line-span">
+        <p class="location-name-detail">{{selectedSite.siteName}}</p>
+      </span>
+      <span slot="end" class="one-line-span">
+        <p class="distance-text-detail">0.1 mi away</p>
+        <img *ngIf="!selectedSite.saved" src="../../../assets/imgs/bookmark_border.svg" (click)="saveSite(selectedSite, true)"/>
+        <img *ngIf="selectedSite.saved" src="../../../assets/imgs/bookmark_selected.svg" (click)="saveSite(selectedSite, false)"/>
+      </span>
+    </ion-item>
+    <ion-label class="site-num-label-detail">Site Number: {{selectedSite.newSiteNo}}</ion-label>
+    <p class="address-text-detail"><img src="../../../assets/imgs/pin_inline.svg"/>{{selectedSite.siteAddress}}</p>
+    <div class="detail-p-container" id="discover-detail-p-container">
+      <p class="detail-p">AGL (feet): {{selectedSite.agl}}</p>  
+      <p class="detail-p">AMSL (feet): {{selectedSite.amsl}}</p>  
+      <p class="detail-p">Latitude: {{selectedSite.latitude}}</p>  
+      <p class="detail-p">Longitude: {{selectedSite.longitude}}</p>  
+      <p class="detail-p">ASR Number: N/A</p>
+    </div>
+    <div id="discover-detail-contact-container">
+      <ion-item>
+        <ion-label>Contact</ion-label>
+      </ion-item>
+      
+      <ion-item>
+        <img src="../../../assets/imgs/discover_detail_contact_name.svg"/>
+        <p>{{selectedSite.rlmName}}</p>
+      </ion-item>
+      <ion-item>
+        <img src="../../../assets/imgs/discover_detail_contact_pin.svg"/>
+        <p>{{selectedSite.rlmAddress}}</p>
+      </ion-item>
+      <ion-item>
+        <img src="../../../assets/imgs/discover_detail_contact_call.svg"/>
+        <p>{{selectedSite.rlmPhone}}</p>
+      </ion-item>
+    </div>
+    <ion-item class="action-btn-container" lines="none">
+      <div class="action-btn-div-detail">
+        <img src="../../../assets/imgs/roofing_ic.png"/>
+        <p>{{selectedSite.siteCategory}}</p>
+      </div>
+      <div class="action-btn-div-detail">
+        <img src="../../../assets/imgs/office_ic.png"/>
+        <p>{{selectedSite.siteType}}</p>
+      </div>
+    </ion-item>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+</ion-content>
+<lib-ionic-pullup *ngIf="!moreDetailStatus" [(state)]="footerState" [(toolbarTopMargin)]="pullUpTopMargin" [minBottomVisible]="0">
+  <ion-toolbar *ngIf="pullUpToolBarStatus" (click)="toggleFooter('')" #ionDragFooter>
+      <img src="../../../assets/imgs/pull_up_header.svg">
+  </ion-toolbar>
+  <ion-content >        
+    <div>
+      <ion-item lines="none">
+        <span class="one-line-span" (click)="goToDetail()">
+          <p class="location-name-detail">{{selectedSite.siteName}}</p>
+        
+        </span>
+        <span slot="end" class="one-line-span">
+          <p class="distance-text-detail" (click)="goToDetail()">0.1 mi away</p>
+          <img *ngIf="!selectedSite.saved" src="../../../assets/imgs/bookmark_border.svg" (click)="saveSite(selectedSite, true)"/>
+          <img *ngIf="selectedSite.saved" src="../../../assets/imgs/bookmark_selected.svg" (click)="saveSite(selectedSite, false)"/>
+        </span>
+      </ion-item>
+      <div (click)="goToDetail()">
+        <ion-label class="site-num-label-detail">Site Number: {{selectedSite.newSiteNo}}</ion-label>
+        <p class="address-text-detail"><img src="../../../assets/imgs/pin_inline.svg"/>{{selectedSite.siteAddress}}</p>
+        <div class="detail-p-container">
+          <p class="detail-p">AGL (feet):  N/A</p>  
+          <p class="detail-p">AMSL (feet): {{selectedSite.amsl}}</p>  
+          <p class="detail-p">Latitude: {{selectedSite.latitude}}</p>  
+          <p class="detail-p">Longitude: {{selectedSite.longitude}}</p>  
+          <p class="detail-p">ASR Number: N/A</p>
+        </div>
+      </div>
+        <ion-item class="action-btn-container" lines="none">
+          <div class="action-btn-div-detail">
+            <img src="../../../assets/imgs/roofing_ic.png"/>
+            <p>{{selectedSite.siteCategory}}</p>
+          </div>
+          <div class="action-btn-div-detail">
+            <img src="../../../assets/imgs/office_ic.png"/>
+            <p>{{selectedSite.siteType}}</p>
+          </div>
+          <div class="action-btn-div-detail">
+            <img src="../../../assets/imgs/direction_ic.png" (click)="showDirection('')"/>
+            <p>Directions</p>
+          </div>
+          <div class="action-btn-div-detail" (click)="shareInfo('')">
+            <img src="../../../assets/imgs/share_ic.png"/>
+            <p>Share</p>  
+          </div>
+        </ion-item>  
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+  </ion-content>
+</lib-ionic-pullup>

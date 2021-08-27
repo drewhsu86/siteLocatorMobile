@@ -1,0 +1,42 @@
+<ion-content>
+  <div class="login-bg" align="center">
+    <div>
+      <img class="logo-img" src="../../../assets/imgs/logo.svg" />
+    </div>
+    <div>
+      <img class="login-text-img" src="../../../assets/imgs/login_text.svg" />
+    </div>
+    <br />
+    <form [formGroup]="form">
+      <div class="input-container">
+        <!-- <ion-label position="floating">Username</ion-label> -->
+        <ion-input type="text" formControlName="username" placeholder="Username"></ion-input>
+        <!-- <ion-label position="floating">Password</ion-label> -->
+        <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
+      </div>
+    </form>
+    <div id="forgot-password-container">
+      <ion-label>Forgot Password?</ion-label>
+    </div>
+    <div id="divider-container">
+      <img src="../../../assets/imgs/login_divider.svg" />
+    </div>
+    <br />
+    <div class="social-sign-btn-container">
+      <img src="../../../assets/imgs/google_sign.svg"/>
+    </div>
+    <div class="social-sign-btn-container">
+      <img src="../../../assets/imgs/microsoft_sign.svg"/>
+    </div>
+    <div class="social-sign-btn-container">
+      <img src="../../../assets/imgs/linkedin_sign.svg"/>
+    </div>
+    <div class="social-sign-btn-container">
+      <img src="../../../assets/imgs/vb_sign.svg"/>
+    </div>
+
+    <ion-button id="login-button" [disabled]="!form.valid" (click)="login()">Sign In</ion-button>
+    <p id="login-register-text">Don’t Have an Account? <strong>Register Now</strong> </p>
+    
+  </div>
+</ion-content>

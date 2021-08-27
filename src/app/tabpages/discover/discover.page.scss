@@ -1,0 +1,260 @@
+ion-toolbar{
+    text-align: center;
+}
+
+ion-content{
+    padding-bottom:8vh;
+}
+
+#search-prev-logo{
+    width: 1.5rem;
+    margin-right: 2vw;
+}
+
+#search_ic{
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.search-address-item{
+    height: 50px;
+    background-image: url('../../../assets/imgs/discover_search_address_back.svg');
+    padding-top: 1vw;
+}
+
+ion-input{
+    font-size: 11px;
+}
+
+#map{
+    width: 100%;
+    height: 45vh;
+
+}
+
+#please-connect {
+    position: absolute;
+    background-color: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  #please-connect p {
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    font-size: 1rem;
+    top: 30%;
+  }
+
+.text-gray-color{
+    --color: #51585A;
+    font-size: 0.8rem;
+    font-family: AppFont;
+    font-weight: 400;
+}
+
+.location-name{
+    font-size: 14px;
+}
+.marquee{
+    margin: 0 auto;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    animation: marquee 50s linear infinite;
+}
+@keyframes marquee {
+    0%   { text-indent: 30em }
+    100% { text-indent: -105em }
+}
+
+.location-name-detail{
+    font-size: 19px;
+}
+
+.near-text{
+    font-size: 8px;
+    padding: 4px;
+    border-radius: 8px;
+    background-color: #E2EED2;
+    margin-left: 2vw;
+    visibility: hidden;
+}
+
+.distance-text{
+    font-size: 8px;
+    margin-right: 2vw;
+}
+.distance-text-detail{
+    font-size: 9px;
+    margin-right: 2vw;
+}
+
+
+.one-line-span{
+    display: contents;
+}
+
+.info-item{
+    // height: 32px;
+}
+.site-num-label{
+    margin-left: 6vw;
+    font-size: 10px;
+    color: #51585A;
+    width: 100%;
+}
+
+.site-num-label-detail{
+    margin-left: 6vw;
+    font-size: 13px;
+    color: #51585A;
+    width: 100%;
+}
+
+.address-text{
+    color: #707070;
+    font-size: 9px;
+    margin-left: 6vw;
+    align-items: center;
+    display: flex;
+}
+
+.address-text-detail{
+    color: #707070;
+    font-size: 12px;
+    margin-left: 5vw;
+    align-items: center;
+    display: flex;
+}
+.address-text-detail img{
+    height: 16px;
+}
+
+.address-text img{
+    height: 12px;
+    padding-right: 1vw;
+}
+
+.action-btn-div{
+    text-align: center;
+    font-size: 8px;
+    margin-left: 2vw;
+}
+
+.action-btn-div-detail{
+    text-align: center;
+    font-size: 10px;
+    margin-left: 4vw;
+}
+
+.action-btn-div p {
+    margin: 0px;
+}
+
+.action-btn-div img{
+    width: 2rem;
+    height: 2rem;
+}
+
+.action-btn-div-detail img{
+    width: 3rem;
+    height: 3rem;
+}
+
+ion-list{
+    padding-bottom: 10vh;
+}
+
+.detail-p-container{
+    margin-left: 6vw;
+    margin-bottom: 3vh;
+}
+
+.detail-p-container p{
+    color: #707070;
+    font-size: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+}
+
+
+
+.locationDisableContainer p{
+    width: 100%;
+    font-size: 15px;
+    color: #51585A;
+    padding-left: 6vw;
+    
+}
+
+
+#locationEnableDiv{
+    text-align: center;
+
+}
+
+#locationEnableDiv div{
+    margin-bottom: 2vh;
+    margin-top:2vh;
+}
+
+#locationEnableDiv ion-label{
+    --color: #51585A;
+    font-size: 12px;
+    --margin-bottom:2vh;
+}
+
+#locationEnableDiv ion-button{
+    font-size: 9px;
+    --border-radius: 20px;
+    height: 40px;
+    width: 145px;
+}
+
+#discover-back-img{
+    position: absolute;
+    width: 10vw;
+    height: 10vw;
+    top: 50px;
+    left: 16px;
+
+}
+
+#discover-detail-actions-container{
+    margin-left: 10vw;
+    margin-right: 10vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    justify-content: space-between;
+    display: flex;
+    border-top: 1px solid #EFEFEF;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+#discover-detail-contact-container{
+    
+    margin-right: 6vw;
+}
+
+#discover-detail-contact-container ion-label{
+    font-size: 13px;
+    --color: #51585A;
+}
+#discover-detail-contact-container ion-item{
+    --border-color: #EFEFEF;
+}
+
+#discover-detail-contact-container p{
+    font-size: 10px;
+    margin-left: 1vw;
+}
+
+#discover-detail-p-container{
+    margin-bottom: unset !important;
+}

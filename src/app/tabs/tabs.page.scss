@@ -1,0 +1,20 @@
+.tab-selected {  
+  border-top: 2px solid;
+}
+
+ion-tab-bar {
+  background-image: url('../../assets/imgs/tab_bar_back.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  --background: transparent;
+
+  position: absolute;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  border: none;
+  padding-bottom: 0.8vh;
+
+  height: 8vh;
+}

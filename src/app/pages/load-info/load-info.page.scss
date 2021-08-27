@@ -1,0 +1,25 @@
+.login-bg{
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/imgs/background.png');
+    
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.logo-img{
+    margin-top: 6vh;
+    width: 50vw;
+
+}
+
+ion-spinner{
+    width: 40vw;
+    height: 40vw;
+    --color: #8BC53F;
+
+}
+#loading-text{
+    color: white;
+}

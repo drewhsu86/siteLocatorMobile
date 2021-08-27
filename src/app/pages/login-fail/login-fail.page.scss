@@ -1,0 +1,36 @@
+.login-bg{
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../assets/imgs/background.png');
+    
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.logo-img{
+    margin-top: 6vh;
+    width: 50vw;
+
+}
+
+.title-text{
+    font-size: 1.2rem;
+    color: white;
+}
+
+.des-text{
+    font-size: 0.8rem;
+    color: white;
+    width: 80vw;
+}
+
+ion-button{
+    position: absolute;
+    bottom: 3vh;
+    left: 15vw;
+    width: 70vw;
+    height: 6vh;
+    --border-radius: 3vh;
+
+}

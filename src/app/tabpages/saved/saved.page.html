@@ -1,0 +1,49 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <img src="../../../assets/imgs/toolbar_logo.svg"/>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="saved-header-container">
+    <img src="../../../assets/icon/favorite_ic.png"/>
+    <ion-label>Saved Sites</ion-label>
+  </div>
+  <div  *ngFor="let site of siteData">
+    <ion-item lines="none" class="info-item">
+      <span class="one-line-span">
+        <p class="location-name">{{site.siteName}}</p>
+        <p class="near-text">Closest</p>  
+      </span>
+      <span slot="end" class="one-line-span">
+        <p class="distance-text">0.1 mi away</p>
+        <img src="../../../assets/icon/favorite_ic.png" (click)="saveSite(site)" />
+      </span>
+    </ion-item>
+    <div>
+      <ion-label class="site-num-label">Site Num:{{site.newSiteNo}}</ion-label>
+      <p class="address-text"><img src="../../../assets/imgs/pin_inline.svg"/>{{site.siteAddress}}</p>
+      <ion-item class="action-btn-container" lines="none">
+        <div class="action-btn-div">
+          <img src="../../../assets/imgs/roofing_ic.png"/>
+          <p>{{site.siteCategory}}</p>
+        </div>
+        <div class="action-btn-div">
+          <img src="../../../assets/imgs/office_ic.png"/>
+          <p>{{site.siteType}}</p>
+        </div>
+        <div class="action-btn-div">
+          <img src="../../../assets/imgs/direction_ic.png"/>
+          <p>Directions</p>
+        </div>
+        <div class="action-btn-div">
+          <img src="../../../assets/imgs/share_ic.png"/>
+          <p>Share</p>  
+        </div>
+      </ion-item>
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+</ion-content>

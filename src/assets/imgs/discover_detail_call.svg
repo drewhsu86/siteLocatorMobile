@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="46" height="47" viewBox="0 0 46 47">
+  <defs>
+    <filter id="Ellipse_22" x="0" y="0" width="46" height="45" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_85" data-name="Group 85" transform="translate(-239 -431.259)">
+    <g id="Group_36" data-name="Group 36" transform="translate(248.487 437.703)">
+      <g transform="matrix(1, 0, 0, 1, -9.49, -6.44)" filter="url(#Ellipse_22)">
+        <g id="Ellipse_22-2" data-name="Ellipse 22" transform="translate(9 6)" fill="none" stroke="#94c25b" stroke-width="1">
+          <ellipse cx="14" cy="13.5" rx="14" ry="13.5" stroke="none"/>
+          <ellipse cx="14" cy="13.5" rx="13.5" ry="13" fill="none"/>
+        </g>
+      </g>
+      <g id="call_black_24dp" transform="translate(6.167 6.376)">
+        <path id="Path_39" data-name="Path 39" d="M0,0H14.691V14.691H0Z" fill="none"/>
+        <path id="Path_40" data-name="Path 40" d="M5.167,4.224A7.537,7.537,0,0,0,5.442,5.81l-.735.735a9.075,9.075,0,0,1-.465-2.32h.924M11.2,11.582a7.806,7.806,0,0,0,1.592.275v.912a9.443,9.443,0,0,1-2.326-.459l.735-.728M5.755,3H3.612A.614.614,0,0,0,3,3.612,10.405,10.405,0,0,0,13.406,14.018a.614.614,0,0,0,.612-.612V11.27a.614.614,0,0,0-.612-.612,6.982,6.982,0,0,1-2.185-.349.514.514,0,0,0-.19-.031.627.627,0,0,0-.435.178L9.25,11.8A9.273,9.273,0,0,1,5.216,7.768L6.563,6.422A.614.614,0,0,0,6.716,5.8a6.954,6.954,0,0,1-.349-2.185A.614.614,0,0,0,5.755,3Z" transform="translate(-1.164 -1.164)" fill="#94c25b"/>
+      </g>
+    </g>
+    <text id="Call" transform="translate(254.5 476.259)" fill="#51585a" font-size="8" font-family="SegoeUI, Segoe UI" letter-spacing="0.008em"><tspan x="0" y="0">Call</tspan></text>
+  </g>
+</svg>

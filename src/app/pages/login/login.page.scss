@@ -1,0 +1,74 @@
+ion-content{
+    --background: #fff url('../../../assets/imgs/background.png') no-repeat center center / cover;
+}
+
+.logo-img{
+    margin-top: 6vh;
+    width: 50vw;
+
+}
+
+.login-text-img{
+    margin-top: 2vh;
+}
+
+.input-container{
+    padding-left: 20vw;
+    padding-right: 20vw;
+    margin-top: 1.5vh;
+}
+
+.input-container > :first-child{
+    margin-bottom: 6vh;
+}
+
+
+
+ion-input{
+    background-color: #5B6255;
+    border-radius: 0.3rem;
+    border: 1px solid #949594;
+    --placeholder-color: white;
+    --placeholder-opacity: 0.8;
+    text-align: left;
+    padding-left: 3vw !important;
+    color: white;    
+    font-size: 0.7rem;
+}
+
+#forgot-password-container{
+    margin-top: 1vh;
+    margin-right: 20vw;
+    text-align: right;
+}
+
+#forgot-password-container ion-label{
+    color:#8BC53F;
+    font-size: 0.6rem;
+}
+
+#divider-container{
+    margin-top: 1vh;
+    margin-left: 4vh;
+    margin-right: 4vh;
+}
+
+.social-sign-btn-container{
+    margin-left: 25vw;
+    margin-right: 25vw;
+    margin-top: 1vh;
+}
+
+#login-button{
+    --border-radius: 3vh;
+    height: 6vh;
+    width: 80vw;
+    margin-top: 3vh;
+    font-size: 0.8rem;
+    text-transform: none;
+}
+
+#login-register-text{
+    font-size: 0.6rem;
+    color: white;
+}

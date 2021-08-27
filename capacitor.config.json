@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "VerticalBridge",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

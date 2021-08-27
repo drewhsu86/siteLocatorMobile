@@ -1,0 +1,23 @@
+<ion-content>
+  <div class="login-bg" align="center">
+    <div>
+      <img class="logo-img" src="../../../assets/imgs/logo.svg" />
+    </div>
+    <div>
+      <p class="title-text">Access denied.</p>
+    </div>
+    <div>
+      <p class="des-text">
+        {{desText}}
+      </p>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div>
+      <img src="../../../assets/imgs/access_deny.png"/>
+    </div>
+    <ion-button color="danger" (click)="backToLogin()">{{backBtnStr}}</ion-button>
+  </div>
+</ion-content>

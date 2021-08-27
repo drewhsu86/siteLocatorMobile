@@ -1,0 +1,5 @@
+<svg id="room_black_24dp" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <path id="Path_65" data-name="Path 65" d="M0,0H16V16H0Z" fill="none"/>
+  <path id="Path_66" data-name="Path 66" d="M9.667,2A4.663,4.663,0,0,0,5,6.667c0,3.5,4.667,8.667,4.667,8.667s4.667-5.167,4.667-8.667A4.663,4.663,0,0,0,9.667,2ZM6.333,6.667a3.333,3.333,0,0,1,6.667,0c0,1.92-1.92,4.793-3.333,6.587C8.28,11.473,6.333,8.567,6.333,6.667Z" transform="translate(-1.667 -0.667)"/>
+  <circle id="Ellipse_35" data-name="Ellipse 35" cx="1.667" cy="1.667" r="1.667" transform="translate(6.333 4.333)"/>
+</svg>
