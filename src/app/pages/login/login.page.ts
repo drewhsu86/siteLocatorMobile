@@ -13,21 +13,10 @@ import { mergeMap } from 'rxjs/operators';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  form: FormGroup;
   private router: Router;
   private user: any;
   constructor(private navCtrl: NavController, private api: ApiServiceService, router: Router, private authService: AuthenticationService,  public loadingController: LoadingController) {
     this.router = router;
-    this.form = new FormGroup({
-      username: new FormControl('', {
-        updateOn: 'change',
-        validators: [Validators.required]
-      }),
-      password: new FormControl('', {
-        updateOn: 'change',
-        validators: [Validators.required, Validators.minLength(6)]
-      })
-    });
    }
 
   ngOnInit() {

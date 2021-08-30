@@ -16,6 +16,9 @@ import { domain, clientId, callbackUri } from './auth.config';
 import { GoogleMapsService } from './services/google-maps.service';
 import { ConnectivityService } from './services/connectivity.service';
 import { GoogleMapsClusterService } from './services/google-maps-cluster.service';
+import { AuthModule } from '@auth0/auth0-angular';
+import { environment } from 'src/environments/environment';
+
 
 
 const config = {
