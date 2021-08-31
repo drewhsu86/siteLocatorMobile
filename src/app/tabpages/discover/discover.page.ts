@@ -106,7 +106,7 @@ markerClicked = 0;
 
   ngAfterViewInit() {
     // set top margin dynamically
-    this.pullUpTopMargin = window.innerHeight / 100 * 40 + 94;
+    //this.pullUpTopMargin = window.innerHeight / 100 * 40 + 94;
     this.loadSitesData();
     // this.loadSiteTempData();
   }

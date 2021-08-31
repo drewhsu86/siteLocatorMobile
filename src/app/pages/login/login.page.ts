@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NavController, Platform, LoadingController } from '@ionic/angular';
+import { NavController, LoadingController } from '@ionic/angular';
 import { ApiServiceService } from 'src/app/services/api-service.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
-
+import { Browser } from '@capacitor/browser';
 import { mergeMap } from 'rxjs/operators';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,7 @@ import { mergeMap } from 'rxjs/operators';
 export class LoginPage implements OnInit {
   private router: Router;
   private user: any;
-  constructor(private navCtrl: NavController, private api: ApiServiceService, router: Router, private authService: AuthenticationService,  public loadingController: LoadingController) {
+  constructor(private navCtrl: NavController, private api: ApiServiceService, router: Router, private authService: AuthService,  public loadingController: LoadingController) {
     this.router = router;
    }
 
@@ -28,7 +27,10 @@ export class LoginPage implements OnInit {
         message: 'Opening login window...' 
       });
     await loadingIndicator.present();
-    await this.authService.login(loadingIndicator);
+    this.authService
+      .buildAuthorizeUrl()
+      .pipe(mergeMap((url) => Browser.open({ url, windowName: '_self' })))
+      .subscribe();
   }
 
 }

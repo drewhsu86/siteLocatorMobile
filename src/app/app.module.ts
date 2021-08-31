@@ -11,26 +11,14 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
-import { domain, clientId, callbackUri } from './auth.config';
 import { GoogleMapsService } from './services/google-maps.service';
 import { ConnectivityService } from './services/connectivity.service';
 import { GoogleMapsClusterService } from './services/google-maps-cluster.service';
 import { AuthModule } from '@auth0/auth0-angular';
-import { environment } from 'src/environments/environment';
+import config from 'capacitor.config';
 
-
-
-const config = {
-  domain,
-  clientId,
-  redirectUri: callbackUri,
-  /* Uncomment the following lines for better support  in browers like Safari where third-party cookies are blocked.
-    See https://auth0.com/docs/libraries/auth0-single-page-app-sdk#change-storage-options for risks.
-  */
-  // cacheLocation: "localstorage",
-  // useRefreshTokens: true
-};
+// Build the URL that Auth0 should redirect back to
+const redirectUri = `${config.appId}://onlinecolostage.us.auth0.com/capacitor/${config.appId}/callback`;
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,7 +28,12 @@ const config = {
     SuperTabsModule.forRoot(), 
     IonicModule.forRoot(), 
     AppRoutingModule, 
-    HttpClientModule
+    HttpClientModule,
+    AuthModule.forRoot({
+      domain: "onlinecolostage.us.auth0.com",
+      clientId: "464sLWL3LhOp1Xg91pEFQkb6QsHNYkNk",
+      redirectUri
+    })
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, StatusBar, Geolocation,Toast, HttpClient, CallNumber, GoogleMapsService, ConnectivityService, GoogleMapsClusterService],
   bootstrap: [AppComponent],

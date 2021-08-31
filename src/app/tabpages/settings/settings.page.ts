@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { mergeMap } from 'rxjs/operators';
-import { callbackUri } from '../../auth.config';
 import { NavController, Platform } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-settings',
@@ -13,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SettingsPage implements OnInit {
   private router: Router;
-  constructor(private navCtrl: NavController, public alertController: AlertController, public platform: Platform, private authService : AuthenticationService, router: Router) {
+  constructor(private navCtrl: NavController, public alertController: AlertController, public platform: Platform, private authService : AuthService, router: Router) {
     this.router = router;
    }
 

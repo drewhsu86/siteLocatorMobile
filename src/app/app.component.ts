@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, Platform, AlertController  } from '@ionic/angular';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { SplashScreen } from '@capacitor/splash-screen';
-
-import { mergeMap } from 'rxjs/operators';
 import { App } from '@capacitor/app';
-
-import { callbackUri } from './auth.config';
 import { ApiServiceService } from 'src/app/services/api-service.service';
 
 @Component({
