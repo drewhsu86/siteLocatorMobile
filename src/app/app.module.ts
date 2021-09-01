@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { IonicModule, IonicRouteStrategy, isPlatform } from '@ionic/angular';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +17,10 @@ import { AuthModule } from '@auth0/auth0-angular';
 import config from 'capacitor.config';
 
 // Build the URL that Auth0 should redirect back to
-const redirectUri = `${config.appId}://onlinecolostage.us.auth0.com/capacitor/${config.appId}/callback`;
+const {appId} = config;
+export const callbackUri = isPlatform("desktop")
+? "http://localhost:4200"
+: `${appId}://onlinecolostage.us.auth0.com/capacitor/${appId}/callback`;
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +34,7 @@ const redirectUri = `${config.appId}://onlinecolostage.us.auth0.com/capacitor/${
     AuthModule.forRoot({
       domain: "onlinecolostage.us.auth0.com",
       clientId: "464sLWL3LhOp1Xg91pEFQkb6QsHNYkNk",
-      redirectUri
+      redirectUri: callbackUri
     })
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, StatusBar, Geolocation,Toast, HttpClient, CallNumber, GoogleMapsService, ConnectivityService, GoogleMapsClusterService],
