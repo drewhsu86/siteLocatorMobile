@@ -18,9 +18,7 @@ import config from 'capacitor.config';
 
 // Build the URL that Auth0 should redirect back to
 const {appId} = config;
-export const callbackUri = isPlatform("desktop")
-? "http://localhost:4200"
-: `${appId}://onlinecolostage.us.auth0.com/capacitor/${appId}/callback`;
+export const callbackUri = `${appId}://onlinecolostage.us.auth0.com/capacitor/${appId}/callback`;
 
 @NgModule({
   declarations: [AppComponent],

@@ -14,11 +14,27 @@ import { Browser } from '@capacitor/browser';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit{
+  public isLoggedIn = false;
   constructor(private navCtrl: NavController, private statusBar: StatusBar, private api: ApiServiceService,private platform: Platform, public alertController: AlertController, public auth: AuthService) {
-    this.initializeApp();
+    // this.initializeApp();
   }
 
   ngOnInit(): void {
+    this.auth.isAuthenticated$.subscribe((loggedIn) => {
+      this.isLoggedIn = loggedIn;
+
+      if(this.isLoggedIn){
+        this.navCtrl.navigateRoot('');
+    }else{
+      this.navCtrl.navigateRoot('login');
+      // this.navCtrl.navigateRoot('');
+      }
+    })
+    App.addListener('appStateChange', ({ isActive }) => {
+      console.log('App state changed. Is active?', isActive);
+    });
+
+
     App.addListener('appUrlOpen', ({ url }) => {
       if (url?.startsWith(callbackUri)) {
         if (
@@ -29,6 +45,7 @@ export class AppComponent implements OnInit{
             .handleRedirectCallback(url)
             .pipe(mergeMap(() => Browser.close()))
             .subscribe();
+            this.navCtrl.navigateRoot('');//this is what we were testing
         } else {
           Browser.close();
         }
@@ -36,11 +53,11 @@ export class AppComponent implements OnInit{
     });
     // Use Capacitor's App plugin to subscribe to the `appUrlOpen` event
 
-    this.platform.backButton.subscribeWithPriority(5, () => {
+  //   this.platform.backButton.subscribeWithPriority(5, () => {
       
-      this.presentAlertConfirm();
+  //     this.presentAlertConfirm();
      
-   });
+  //  });
 
   }
 
